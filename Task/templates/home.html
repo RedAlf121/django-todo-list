@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-List</title>
+</head>
+<body>
+    <main>
+        <ul>
+            {% for todo in todolist %}
+            <li>
+                <article>
+                    <p>{{todo.name}}</p>
+                    <p>{{todo.description}}</p>
+                    <p>{{todo.date}}</p>
+                </article>
+                <button class="delete-btn">Delete</button>
+            </li>
+            {% endfor %}
+        </ul>
+        <button class="floating-btn">+</button>    
+    </main>
+    
+</body>
+</html>
