@@ -16,18 +16,63 @@
                     <h2>{{todo.name}}</h2>
                     <p>{{todo.description}}</p>
                     <div class="date">Published: {{todo.date}}</div>
-                    <button class="delete-btn" aria-label="Delete todo item">×</button>
+                    <button id="{{todo.id}}" onmousedown="deleteTask(event)" data-url="{% url 'delete_task' todo.id %}" class="delete-btn" aria-label="Delete todo item">×</button>
                 </article>
             </li>
+            {% empty %}
+            <p>No tasks yet</p>
             {% endfor %}
         </ul>
-        <a href="#" class="floating-btn" aria-label="Add item">
+        <div onmousedown="taskDialog()" class="floating-btn" aria-label="Add item">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
-        </a>    
+        </div> 
+        <dialog id="add-task">
+           <form action="{% url 'add_task' %}" method="post">
+                {% csrf_token %}
+                <legend>Add your task</legend>
+                {{add_task_form.as_p}}
+                <button type="submit">Add</button>
+           </form> 
+        </dialog>
     </main>
-    
+    <script>
+        function taskDialog(){
+            document.getElementById('add-task').showModal();
+        }
+        async function deleteTask(event){
+            button = event.target
+            url = button.dataset.url
+            data = await fetch(url,{
+                method:'DELETE',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                }
+            })
+            if (data.status === 200) {
+                location.reload(); // Recarga la página
+            } else {
+                console.log(data.status)
+                alert('Error al eliminar la tarea');
+            }
+        }
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                        +django
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
 </body>
 </html>

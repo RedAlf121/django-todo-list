@@ -1,5 +1,6 @@
 @import url(components/card.css);
 @import url(components/floatbtn.css);
+@import url(components/addform.css);
 
 body {
     font-family: Arial, sans-serif;

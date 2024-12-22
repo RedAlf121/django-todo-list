@@ -6,3 +6,6 @@ class Task(models.Model):
     description = models.TextField(blank=True)
     date = models.DateField(null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name + " by " + self.user.username + " on " + self.date.strftime("%a, %d/%m/%Y")
