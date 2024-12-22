@@ -1,11 +1,11 @@
-from models import Task
+from Task.models import Task
 from django.contrib.auth.models import User
 
 def getTask(user: User, id: int):
     pass
 
 def listTask(user: User):
-    pass
+    return Task.objects.all()
 
 def addTask():
     pass

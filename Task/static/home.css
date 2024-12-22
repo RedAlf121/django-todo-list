@@ -1,0 +1,28 @@
+@import url(components/card.css);
+@import url(components/floatbtn.css);
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 40px); /* Subtract padding from viewport height */
+    scrollbar-width: none;
+}
+
+ul{
+    list-style-type: none;
+}
+.floating-btn{
+    bottom: 15px;
+    right: 50px;
+}
