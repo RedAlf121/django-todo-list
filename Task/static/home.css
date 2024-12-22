@@ -1,6 +1,6 @@
+@import url(components/addform.css);
 @import url(components/card.css);
 @import url(components/floatbtn.css);
-@import url(components/addform.css);
 
 body {
     font-family: Arial, sans-serif;
@@ -23,6 +23,15 @@ main {
 ul{
     list-style-type: none;
 }
+
+main ul p { 
+    font-size: 2em; 
+    text-align: center; 
+    margin: 20px auto; 
+    display: block; 
+    width: fit-content; 
+}
+
 .floating-btn{
     bottom: 15px;
     right: 50px;

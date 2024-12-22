@@ -1,5 +1,6 @@
 from .models import Task
 from django.forms import ModelForm,DateInput
+from django.contrib.auth.forms import AuthenticationForm
 
 class TaskForm(ModelForm):
     class Meta:
@@ -8,3 +9,4 @@ class TaskForm(ModelForm):
         widgets = {
             'date': DateInput(attrs={'type':'date'})
         }
+

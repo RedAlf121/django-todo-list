@@ -1,0 +1,80 @@
+/* Dialog styling */
+#add-task {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  #add-task::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Form styling */
+  #add-task form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  #add-task legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  #add-task input,
+  #add-task textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  #add-task button[type="submit"],
+  #cancel-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+  }
+  
+  #add-task button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Button group styling */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  /* Cancel button styling */
+  #cancel-button {
+    background-color: #f44336;
+  }
+  
+  #cancel-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Center all form elements */
+  #add-task form > * {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  

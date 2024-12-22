@@ -34,13 +34,19 @@
                 {% csrf_token %}
                 <legend>Add your task</legend>
                 {{add_task_form.as_p}}
-                <button type="submit">Add</button>
+                <div class="button-group">
+                    <button type="submit" onmousedown="taskDialog()">Add</button>
+                    <button type="button" id="cancel-button" onmousedown="closeDialog()">Cancel</button>
+                </div>
            </form> 
         </dialog>
     </main>
     <script>
         function taskDialog(){
             document.getElementById('add-task').showModal();
+        }
+        function closeDialog(){
+            document.getElementById('add-task').close();
         }
         async function deleteTask(event){
             button = event.target

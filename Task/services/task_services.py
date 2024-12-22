@@ -7,8 +7,8 @@ def getTask(user: User, id: int):
 def listTask(user: User):
     return Task.objects.filter(user=user)
 
-def addTask(form):
-    user = User.objects.get(id=2)
+def addTask(request,form):
+    user = request.user
     task = form.save(commit=False)
     task.user = user
     task.save()
